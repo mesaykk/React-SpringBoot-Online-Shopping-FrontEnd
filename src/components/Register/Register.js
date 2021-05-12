@@ -9,7 +9,8 @@ import './Register.css';
 
 const Register = () => {
 
-    const [name, setName] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -19,25 +20,35 @@ const Register = () => {
     
 
     function validateForm() {
-        return email.length > 0 && password.length > 0 & name.length > 0 && confirmPassword.length > 0;
+        return email.length > 0 && password.length > 0 && firstName.length > 0 && lastName.length > 0  && confirmPassword.length > 0;
     }
 
-    function handleSubmit(event) {
+    const handleSubmit =(event) => {
         event.preventDefault();
     }
  
     return (
         <div className='Register'>
-            <h1> Register </h1>
+            <h1> <FontAwesomeIcon icon={faUserPlus} />  Register </h1>
             <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="name" text-center>
-                    <Form.Label>Name</Form.Label>
+                <Form.Group controlId="firstName" text-center>
+                    <Form.Label>First Name</Form.Label>
                     <Form.Control 
                         type="name"
-                        placeholder="Enter Your Name" 
-                        value={name}
+                        placeholder="Enter Your First Name" 
+                        value={firstName}
                         autoFocus
-                        onChange={(e) => setName(e.target.value)}/>
+                        onChange={(e) => setFirstName(e.target.value)}/>
+                </Form.Group>
+
+                <Form.Group controlId="lastName" text-center>
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control 
+                        type="firstName"
+                        placeholder="Enter Your Last Name" 
+                        value={lastName}
+                        autoFocus
+                        onChange={(e) => setLastName(e.target.value)}/>
                 </Form.Group>
 
                 <Form.Group controlId="email" text-center>

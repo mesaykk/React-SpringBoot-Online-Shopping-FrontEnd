@@ -7,7 +7,7 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Row, Col } from 'r
 
 
 import "./Login.css";
-import Manager from '../Manager/Manager';
+import Dashboard from '../Dashboard/Dashboard';
 
 const Login = () => {
 

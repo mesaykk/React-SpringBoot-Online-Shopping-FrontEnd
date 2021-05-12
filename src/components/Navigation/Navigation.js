@@ -12,7 +12,7 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import './Navigation.css'
 import Footer from '../Footer/Footer';
-import Manager from '../Manager/Manager';
+import Dashboard from '../Dashboard/Dashboard';
 import RegisterSeller from '../Register/RegisterSeller';
 
 
@@ -44,7 +44,7 @@ const Navigation = () => {
           
 
           <li  style={{ float: 'right' }}>
-            <Link to="/manager" >Dashboard</Link> </li>
+            <Link to="/Dashboard" >Dashboard</Link> </li>
             
             <li style={{ float: 'right' }}>
             <Link to="/cart"  ><FontAwesomeIcon icon={faShoppingCart} /></Link> </li>
@@ -65,7 +65,7 @@ const Navigation = () => {
         <Route path="/register" component={Register}></Route>
         <Route path="/registerseller" component={RegisterSeller}></Route>
 
-        <Route path="/manager" component={Manager}></Route>
+        <Route path="/dashboard" component={Dashboard}></Route>
 
       </Switch>
     </div>
