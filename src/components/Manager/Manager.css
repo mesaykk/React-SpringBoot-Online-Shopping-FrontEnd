@@ -1,0 +1,30 @@
+
+
+.Manager ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+    width: 100%;
+    text-align: center;
+    background-color: whitesmoke;
+    font-size: x-large;
+    justify-content: center;
+}
+
+
+.Manager li {
+    display: inline-block;
+    margin: 20px;
+    text-decoration: none;
+}
+
+
+.Manager a:hover,
+.Manager a:active {
+    color: #fa923f;
+    text-decoration: none;
+}
+
+
+ 
+

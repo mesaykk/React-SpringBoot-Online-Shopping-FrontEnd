@@ -1,0 +1,29 @@
+
+
+.Header  {
+    margin: 20px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+    background-color: whitesmoke;
+    height: 100px;
+}
+
+
+.Header li {
+    display: inline-block;
+    margin: 20px;
+}
+.Header a {
+    text-decoration: none;
+    color: block;
+}
+
+.Header a:hover,
+.Header a:active {
+    color: #fa923f;
+}
+
+
+ 
+

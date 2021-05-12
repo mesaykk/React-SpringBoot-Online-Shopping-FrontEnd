@@ -1,0 +1,12 @@
+.Register,.RegisterSeller {
+    padding: 60px 0;
+  }
+
+  .Register,.RegisterSeller form {
+    margin: 0 auto;
+    max-width: 520px;
+    font-size: larger;
+  }
+  h1 {
+      text-align: center;
+  }

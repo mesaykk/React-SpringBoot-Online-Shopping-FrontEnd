@@ -1,0 +1,44 @@
+/* @media all and (min-width: 680px) { */
+    .Login {
+      padding: 60px 0;
+    }
+  
+    .Login form {
+      margin: 0 auto;
+      max-width: 520px;
+      font-size: larger;
+    }
+    h1 {
+        text-align: center;
+    }
+  
+
+/* 
+
+.Login ul {
+    list-style: none;
+    margin-right: 20px;
+    padding:20px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(15, 0, 15);
+    font-size: x-large;
+}
+
+
+.Navigation li {
+    display: inline-block;
+    margin: 20px;
+    text-decoration: none;
+}
+
+
+.Navigation a:hover,
+.Navigation a:active {
+    color: #fa923f;
+    text-decoration: none;
+}
+
+
+ 
+ */
