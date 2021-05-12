@@ -6,6 +6,8 @@ const Product =(props) =>{
 
     return(
         <div className='product' >
+                
+
             {/* productname */}
             <h1>{props.name}</h1>
             <div className = 'Info'>
