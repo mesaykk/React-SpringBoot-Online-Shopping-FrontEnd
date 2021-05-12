@@ -7,6 +7,7 @@ import { faHome, faMinus, faPlus, faShoppingCart, faSignInAlt, faSignOutAlt, faU
 
 const Cart = () => {
 
+    //manage the ui
 
     return (
         <div className="Cart">
