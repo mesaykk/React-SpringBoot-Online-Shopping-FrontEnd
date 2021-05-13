@@ -7,7 +7,7 @@ import './Home.css';
 
 const Home = (props) => {
   return (
-    <div className="Home">
+    
         
       <Carousel >
         <Carousel.Item >
@@ -32,13 +32,15 @@ const Home = (props) => {
           <Carousel.Caption style={{color: "black", fontSize: "larger"}}>
             <h3>Electronics</h3>
             <p>Shop Your Favorite Electronics </p>
+            
           </Carousel.Caption>
         </Carousel.Item>
+        
       </Carousel>
 
-        
+ 
 
-    </div>
+    
   );
 };
 export default Home;

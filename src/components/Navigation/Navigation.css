@@ -1,8 +1,8 @@
 
 
-.Navigation ul {
+.Navigation .NavigationUL{
     list-style: none;
-    /* margin-right: 20px; */
+     margin-right: 20px; 
     padding:10px;
     
     width: 100%;

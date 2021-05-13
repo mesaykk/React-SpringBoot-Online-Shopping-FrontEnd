@@ -1,13 +1,19 @@
 import { Container, Navbar, Col, Card } from 'react-bootstrap';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faMinus, faPlus, faShoppingCart, faSignInAlt, faSignOutAlt, faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { ProductInCart } from '../../store/ProductInCart';
 
 
 const Cart = () => {
 
-    //manage the ui
+    const cartContext =  useContext(ProductInCart);
+
+    const getTotalAmount=()=>{
+		return cartContext.reduce((prevValue,currentValue)=> prevValue+currentValue.price,0);
+	}
+
 
     return (
         <div className="Cart">
