@@ -8,19 +8,37 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Row, Col } from 'r
 
 import "./Login.css";
 import Dashboard from '../Dashboard/Dashboard';
+import axios from 'axios';
 
 const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    
 
-    function validateForm() {
+    const handleSubmit =(email, password) =>{
+        axios.post("http://localhost:8080/authentication", {
+            email,
+            password
+        })
+        .then((response) => {
+            if(response.data.accessToken) {
+                localStorage.setItem("user", JSON.stringify(response.data))
+            }
+            return response.data;
+        });
+    }
+    const logout = () => {
+        localStorage.removeItem("user")
+    }
+    const validateForm =() =>{
         return email.length > 0 && password.length > 0;
     }
+    
 
-    function handleSubmit(event) {
-        event.preventDefault();
-    }
+    
+
+  
 
     return (
         <div className='Login' >
@@ -47,7 +65,9 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
 
-                <Button size="lg" variant="primary" type="submit" disabled={!validateForm()}><FontAwesomeIcon icon={faSignInAlt} /> Sign In
+                <Button size="lg" variant="primary" type="submit" disabled={!validateForm()}>
+                    
+                    <FontAwesomeIcon icon={faSignInAlt} /> Sign In
                 </Button>
             </Form>
 

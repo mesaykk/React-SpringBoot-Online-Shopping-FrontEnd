@@ -4,6 +4,7 @@ import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, {  useEffect, useState } from 'react';
 import './Register.css';
+import axios from 'axios';
 
 
 const RegisterSeller = () => {
@@ -20,11 +21,20 @@ const RegisterSeller = () => {
 
 
     function validateForm() {
-        return email.length > 0 && password.length > 0 && firstName.length > 0 && lastName.length > 0 && confirmPassword.length > 0;
+        return email.length > 0 && password.length > 0 && firstName.length > 0 && 
+        lastName.length > 0 && confirmPassword.length > 0 && buisnessAddress.length > 0 && typeOfProduct.length > 0;
     }
 
-    const handleSubmit =(event) => {
-        event.preventDefault();
+    const handleSubmit =(firstName, lastName,email, password, confirmPassword, buisnessAddress, typeOfProduct) =>{
+        axios.post("http://localhost:8080/authentication", {
+            firstName,
+            lastName,
+            email,
+            password,
+            confirmPassword,
+            buisnessAddress,
+            typeOfProduct
+        })
     }
 
 
@@ -102,7 +112,7 @@ const RegisterSeller = () => {
                             onChange={(e) => setBuisnessAddress(e.target.value)} />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit"><FontAwesomeIcon icon={faUserPlus} /> Sign UP
+                    <Button variant="primary" type="submit" disabled={!validateForm()}><FontAwesomeIcon icon={faUserPlus} /> Sign UP
                         </Button>
                 </Form>
             </div>

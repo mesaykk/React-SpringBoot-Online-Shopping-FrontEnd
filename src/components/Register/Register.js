@@ -1,10 +1,11 @@
 
-import React, { FC, FormEvent, useEffect, useState } from 'react';
+import React, {useState } from 'react';
 
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Register.css';
+import axios from 'axios';
 
 
 const Register = () => {
@@ -19,12 +20,21 @@ const Register = () => {
     
     
 
-    function validateForm() {
-        return email.length > 0 && password.length > 0 && firstName.length > 0 && lastName.length > 0  && confirmPassword.length > 0;
+    const validateForm = () => {
+        return email.length > 0 && password.length > 0 && firstName.length > 0 && lastName.length > 0  
+        && confirmPassword.length > 0 && shippingAddress.length > 0 && billingAddress.length > 0;
     }
 
-    const handleSubmit =(event) => {
-        event.preventDefault();
+    const handleSubmit =(firstName, lastName,email, password, confirmPassword, shippingAddress, billingAddress) =>{
+        axios.post("http://localhost:8080/authentication", {
+            firstName,
+            lastName,
+            email,
+            password,
+            confirmPassword,
+            shippingAddress,
+            billingAddress
+        })
     }
  
     return (
@@ -102,7 +112,7 @@ const Register = () => {
                         onChange={(e) => setBillingAddress(e.target.value)} />
                 </Form.Group>
 
-                <Button variant="primary" type="submit"><FontAwesomeIcon icon={faUserPlus} /> Sign UP
+                <Button variant="primary" type="submit" disabled={!validateForm()}><FontAwesomeIcon icon={faUserPlus} /> Sign UP
                 </Button>
 
             </Form>
