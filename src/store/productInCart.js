@@ -1,3 +1,3 @@
 import React from 'react';
 
-export const productInCart = React.createContext([]);
+export const ProductInCart = React.createContext([]);

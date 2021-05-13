@@ -1,8 +1,8 @@
 
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { FC, FormEvent, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import './Register.css';
 
 

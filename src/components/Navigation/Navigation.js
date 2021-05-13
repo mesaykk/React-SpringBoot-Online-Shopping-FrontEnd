@@ -1,6 +1,4 @@
 
-
-
 import { Link, Route, Switch } from 'react-router-dom';
 import Home from '../Home/Home';
 import Products from '../Products/Products';
