@@ -20,7 +20,7 @@ const Navigation = () => {
   return (
     <div className='Navigation'>
       <nav>
-        <ul>
+        <ul className='NavigationUL'>
           <li style={{ textAlign: 'center' }}>
             <Link to="/home"  >Home</Link></li>
           <li style={{ textAlign: 'center' }}>
@@ -48,7 +48,7 @@ const Navigation = () => {
             <Link to="/cart"  ><FontAwesomeIcon icon={faShoppingCart} /></Link> </li>
 
           <li>
-            <Link to="/#footer" >Contact Us</Link> </li>
+            <Link to="/footer" >Contact Us</Link> </li>
 
 
         </ul>
@@ -58,7 +58,7 @@ const Navigation = () => {
         <Route path="/home" component={Home}></Route>
         <Route path="/products" component={Products}></Route>
         <Route path="/cart" component={Cart}></Route>
-        <Route path="/#footer" component={Footer}></Route>
+        <Route path="/footer" component={Footer}></Route>
         <Route path="/signin" component={Login}></Route>
         <Route path="/register" component={Register}></Route>
         <Route path="/registerseller" component={RegisterSeller}></Route>

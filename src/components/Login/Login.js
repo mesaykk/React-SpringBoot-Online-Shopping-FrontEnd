@@ -1,4 +1,4 @@
-import React, { FC, FormEvent, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { Link, RouteComponentProps, useHistory } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
