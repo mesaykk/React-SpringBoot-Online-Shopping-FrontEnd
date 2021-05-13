@@ -50,13 +50,15 @@ const AddProduct = () => {
                 <Form.Group controlId="category" text-center>
 
                     <Form.Label>Add Category</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Add Category"
-                        value={category}
-                        autoFocus
-                        onChange={(e) => setCategory(e.target.value)}
-                    />
+                    <Form.Control as="select" type="text" placeholder="Add Category" value={category}
+                        autoFocus onChange={(e) => setCategory(e.target.value)}
+                    >
+                        <option>Electronics</option>
+                        <option>Books</option>
+                        <option>Furnitures</option>
+                        <option>Clothes</option>
+                        <option>Foods</option>
+                    </Form.Control>
 
                 </Form.Group>
 
@@ -64,21 +66,21 @@ const AddProduct = () => {
                     <Form.Label>Unit Price</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Unit Price" 
+                        placeholder="Unit Price"
                         value={unitPrice}
                         autoFocus
                         onChange={(e) => setUnitPrice(e.target.value)}
-                        />
+                    />
                 </Form.Group>
                 <Form.Group controlId="itemSize" text-center>
                     <Form.Label>Add Item Size</Form.Label>
-                    <Form.Control 
-                        type="text" 
+                    <Form.Control
+                        type="text"
                         placeholder="Add Item Size"
                         value={itemSize}
                         autoFocus
                         onChange={(e) => setItemSize(e.target.value)}
-                        />
+                    />
                 </Form.Group>
 
                 <Form>
@@ -89,8 +91,7 @@ const AddProduct = () => {
                     />
                 </Form>
 
-                <Button variant="primary" type="submit"><FontAwesomeIcon icon={faPlus} />
-                   Add Product
+                <Button variant="primary" type="submit"><FontAwesomeIcon icon={faPlus} />  Add Product
                 </Button>
             </Form>
         </div>

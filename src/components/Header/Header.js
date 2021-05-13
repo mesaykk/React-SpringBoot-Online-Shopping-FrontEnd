@@ -10,7 +10,7 @@ const Header = (props) => {
 				<div className="Container">
 
 					<div className="Banner">
-						<h1><Link to="#">React Ecommerce</Link></h1>
+						<h1><Link to="#">React-Spring Boot Ecommerce</Link></h1>
 						<h4 className="mute"> Your stores. Your place.</h4>
 					</div>
 					<div className="Search">

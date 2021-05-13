@@ -12,14 +12,14 @@ const Home = (props) => {
       <Carousel >
         <Carousel.Item >
           
-          <img className="d-block w-50 mx-auto" src={img1} alt="First slide" style={{filter: "blur(2px)"}}/>
+          <img className="d-block w-50 mx-auto" src={img1} alt="First slide" />
           <Carousel.Caption style={{color: "black", fontSize: "larger"}}>
             <h3>Shop online</h3>
             <p>Buy and Sell, in your Store</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item >
-          <img className="d-block w-50 mx-auto" src={img2} alt="Second slide" style={{filter: "blur(2px)"}} />
+          <img className="d-block w-50 mx-auto" src={img2} alt="Second slide" />
 
           <Carousel.Caption style={{color: "black", fontSize: "larger"}}>
             <h3>Books</h3>
@@ -27,7 +27,7 @@ const Home = (props) => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item >
-          <img className="d-block w-50 mx-auto" src={img3} alt="Third slide" style={{filter: "blur(2px)"}}/>
+          <img className="d-block w-50 mx-auto" src={img3} alt="Third slide" />
 
           <Carousel.Caption style={{color: "black", fontSize: "larger"}}>
             <h3>Electronics</h3>
