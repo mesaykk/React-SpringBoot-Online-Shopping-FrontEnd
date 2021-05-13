@@ -1,5 +1,6 @@
 .Register,.RegisterSeller {
     padding: 60px 0;
+    border: 1px solid lightgray;
   }
 
   .Register,.RegisterSeller form {

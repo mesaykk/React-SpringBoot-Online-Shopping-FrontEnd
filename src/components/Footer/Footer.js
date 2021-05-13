@@ -7,7 +7,7 @@ const Footer = (props) => {
     let fullYear = new Date().getFullYear();
     return (
         <div className ="Footer">
-        <Navbar fixed="bottom" bg="dark" variant="dark">
+        <Navbar sticky="bottom" bg="dark" variant="dark">
             
              
                                

@@ -28,14 +28,18 @@
     color: #fa923f;
     text-decoration: none;
 }
-.AddProduct {
-    padding: 60px 0;
-}
 
-.AddProduct,form {
+
+.AddProduct, form {
     margin: 0 auto;
     max-width: 520px;
-    font-size: larger;
+    padding: 10px;
+
+   
+}
+.AddProduct {
+    border: 1px solid lightgray;
+    text-align: left;
 }
 
 
