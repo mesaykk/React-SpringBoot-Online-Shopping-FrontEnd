@@ -10,6 +10,17 @@ import axios from 'axios';
 
 const Login = () => {
 
+    //  this.state = {
+    //     Login: true
+    // }
+    // this.changeState = this.changeState.bind(this)
+
+    // changeState = () => {
+    //     this.useState({
+    //         Login: !this.state.Login
+    //     })
+    // }
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
