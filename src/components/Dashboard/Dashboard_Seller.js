@@ -15,12 +15,14 @@ const Dashboard_Seller= (props) => {
             <nav style ={{backgroundColor:'whitesmoke'}}>
             
                 <ul>
+                    
+                <li >
+                        <Link to="/Dashboard/addproduct"> Add Products</Link></li>
 
                     <li >
                         <Link to="/Dashboard/orders"  > List of Orders</Link></li>
 
-                    <li >
-                        <Link to="/Dashboard/addproduct"> Add Products</Link></li>
+                    
 
                 </ul>
            
