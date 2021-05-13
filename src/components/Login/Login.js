@@ -3,9 +3,7 @@ import { Link, RouteComponentProps, useHistory } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Row, Col } from 'react-bootstrap';
-
-
+import { Form} from 'react-bootstrap';
 import "./Login.css";
 import Dashboard from '../Dashboard/Dashboard';
 import axios from 'axios';
@@ -34,11 +32,6 @@ const Login = () => {
     const validateForm =() =>{
         return email.length > 0 && password.length > 0;
     }
-    
-
-    
-
-  
 
     return (
         <div className='Login' >
@@ -70,7 +63,6 @@ const Login = () => {
                     <FontAwesomeIcon icon={faSignInAlt} /> Sign In
                 </Button>
             </Form>
-
 
         </div>
     );
