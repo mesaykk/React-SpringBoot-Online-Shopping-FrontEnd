@@ -10,7 +10,7 @@ const Products = (props) => {
   const productAPI = APIs.productAPI;
 
   const [products, setProduct] = useState([]);
-  const [isLoading, setLoading] = useState(false); // indicates that is retreiving data
+  const [isLoading, setLoading] = useState(false); 
     const [error, setError] = useState();
     const [selectedId, setSelectedId] = useState(null);
 
@@ -65,7 +65,7 @@ const Products = (props) => {
         content = <p>{error}</p>;
     }
     else if (isLoading) {
-        content = <p> Loading ... </p>;  // BONUS MAKE THIS WAIT FOR A 30 seconds
+        content = <p> Loading ... </p>;  
     }
 
   return (

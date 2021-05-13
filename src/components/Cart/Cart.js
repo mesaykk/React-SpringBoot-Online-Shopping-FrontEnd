@@ -1,6 +1,6 @@
 import { Container, Navbar, Col, Card } from 'react-bootstrap';
 
-import React, { useContext } from 'react';
+import React, {useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faMinus, faPlus, faShoppingCart, faSignInAlt, faSignOutAlt, faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { ProductInCart } from '../../store/ProductInCart';
@@ -8,6 +8,7 @@ import { ProductInCart } from '../../store/ProductInCart';
 
 const Cart = () => {
 
+    const [cartItems, setCartItems] = useState("");
     const cartContext =  useContext(ProductInCart);
 
     const getTotalAmount=()=>{
