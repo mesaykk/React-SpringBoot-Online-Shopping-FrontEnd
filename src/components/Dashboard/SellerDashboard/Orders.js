@@ -1,6 +1,6 @@
 import React, {useContext}from 'react';
 import {Table} from 'react-bootstrap';
-import {AllOrders} from '../../store/AllOrders';
+import {AllOrders} from '../../../store/AllOrders';
 
 
 

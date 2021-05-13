@@ -3,12 +3,23 @@ import { Link, RouteComponentProps, useHistory } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
-import { Form} from 'react-bootstrap';
+import { Form, Button} from 'react-bootstrap';
 import "./Login.css";
 import Dashboard from '../Dashboard/Dashboard';
 import axios from 'axios';
 
 const Login = () => {
+
+    //  this.state = {
+    //     Login: true
+    // }
+    // this.changeState = this.changeState.bind(this)
+
+    // changeState = () => {
+    //     this.useState({
+    //         Login: !this.state.Login
+    //     })
+    // }
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
