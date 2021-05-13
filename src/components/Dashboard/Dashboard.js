@@ -1,6 +1,6 @@
 import React from 'react';
-import AddProduct from './AddProduct';
-import Orders from './Orders';
+import AddProduct from './SellerDashboard/AddProduct';
+import Orders from './SellerDashboard/Orders';
 import { Link, Route, Switch } from 'react-router-dom';
 
 import './Dashboard.css'
