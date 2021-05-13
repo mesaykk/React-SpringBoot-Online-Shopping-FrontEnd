@@ -3,7 +3,7 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 import { faPlus, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, Route, Switch } from 'react-router-dom';
-import '../../Dashboard/Dashboard.css'
+import '../Dashboard/Dashboard.css'
 
 const AddProduct = () => {
 
