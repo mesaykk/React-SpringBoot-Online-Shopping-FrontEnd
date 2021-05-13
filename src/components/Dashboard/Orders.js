@@ -1,5 +1,5 @@
 import React, {useContext}from 'react';
-import {Table} from 'react-bootstrap';
+import {Table, Dropdown, DropdownButton} from 'react-bootstrap';
 import {AllOrders} from '../../store/AllOrders';
 
 
@@ -39,7 +39,14 @@ const Orders = (props) => {
                         <td>{props.price}</td>
                         <td>{props.amount}</td>
                         <td>{getTotalAmount}</td>
-                        <td>{props.status}</td>
+                        <td>
+                        <DropdownButton id="dropdown-basic-button" title="Sign Up"> 
+              <Dropdown.Item >Shipped</Dropdown.Item>
+              <Dropdown.Item >on the way</Dropdown.Item>
+              <Dropdown.Item > Delivered</Dropdown.Item>
+            </DropdownButton>
+                        </td>
+
                         
                     </tr>
                     

@@ -7,7 +7,7 @@ import './Dashboard.css'
 import Users from './UserList';
 import ProductList from './ProductList';
 
-const Dashboard = (props) => {
+const Dashboard_Buyer = (props) => {
 
     return (
         <div className="Dashboard ">
@@ -56,4 +56,4 @@ const Dashboard = (props) => {
     )
 
 }
-export default Dashboard;
+export default Dashboard_Buyer;
