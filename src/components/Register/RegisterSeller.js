@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, {  useState } from 'react';
 import './Register.css';
 import axios from 'axios';
+import {APIConfig} from '../../store/API-Config';
 
 
 const RegisterSeller = () => {
@@ -13,36 +14,44 @@ const RegisterSeller = () => {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [buisnessAddress, setBuisnessAddress] = useState("");
-    const [typeOfProduct, setTypeOfProduct] = useState("");
+     const [role, setRole] = useState("SELLER");
+     const[message,setMessage]=useState("");
+
+     const APIs = useContext(APIConfig);
+    const userAPI = APIs.userAPI;
 
 
+    
+    
+  
 
 
-    function validateForm() {
-        return email.length > 0 && password.length > 0 && firstName.length > 0 && 
-        lastName.length > 0 && confirmPassword.length > 0 && buisnessAddress.length > 0 && typeOfProduct.length > 0;
-    }
+     const userData = { firstName:firstName, lastName:lastName, email: email, password:password,role:role};
 
-    const handleSubmit =(firstName, lastName,email, password, confirmPassword, buisnessAddress, typeOfProduct) =>{
-        axios.post("http://localhost:8080/authentication", {
-            firstName,
-            lastName,
-            email,
-            password,
-            confirmPassword,
-            buisnessAddress,
-            typeOfProduct
+   
+
+    const handleUserSubmit =() =>{
+        console.log("hello tedy");
+
+        axios.post(userAPI, userData)
+        .then(data => {
+            setMessage("You have registered with us Successfully. Thank you "+firstName+"!");
+            console.log('Success:', data);
+           /// props.history.push('/posts'); // push will add it to the page stack, replace will just replace the component  // props.history.replace('/posts'); 
         })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+        
     }
 
 
     return (
         <div className='RegisterSeller'>
+          
             <h1> <FontAwesomeIcon icon={faUserPlus} /> Register To Sell</h1>
             <div>
-                <Form class="card" onSubmit={handleSubmit}>
+                <Form class="card" onSubmit={(e)=>e.preventDefault()}  >
                     <Form.Group controlId="firstName" text-center>
                         <Form.Label>First Name</Form.Label>
                         <Form.Control
@@ -80,41 +89,16 @@ const RegisterSeller = () => {
                             value={password}
                             autoFocus
                             onChange={(e) => setPassword(e.target.value)} />
+                   
                     </Form.Group>
 
-                    <Form.Group size="lg" controlId="password">
-                        <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control
-                            type="confirmPassword"
-                            placeholder="Confirm Password"
-                            value={confirmPassword}
-                            autoFocus
-                            onChange={(e) => setConfirmPassword(e.target.value)} />
-                    </Form.Group>
+                    <div className="successMessage">{message}</div>
 
-                    <Form.Group controlId="typeOfProduct">
-                        <Form.Label> Type Of product</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Enter type of product"
-                            value={typeOfProduct}
-                            outoFocus
-                            onChange={(e) => setTypeOfProduct(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Form.Group size="lg" controlId="shippingAddress">
-                        <Form.Label>Shipping Adrress</Form.Label>
-                        <Form.Control
-                            type="shippingAddress"
-                            placeholder="Shipping Address"
-                            value={buisnessAddress}
-                            autoFocus
-                            onChange={(e) => setBuisnessAddress(e.target.value)} />
-                    </Form.Group>
-
-                    <Button variant="primary" type="submit" disabled={!validateForm()}><FontAwesomeIcon icon={faUserPlus} /> Sign UP
+                    <Button   onClick={handleUserSubmit} type="submit" ><FontAwesomeIcon icon={faUserPlus} /> Sign UP
                         </Button>
+                   
                 </Form>
+               
             </div>
 
         </div>

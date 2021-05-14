@@ -140,7 +140,7 @@ const Products = (props) => {
               </Button>
             </Card.Body>
           </Card>
-        </CardDeck>
+        </CardDeck> */}
       </div>
       <Switch>
         <Route path="/product" component={Product}> </Route>

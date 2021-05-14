@@ -14,6 +14,7 @@ const Shop = (props) => {
       value={{
         productAPI: "http://localhost:8080/products",
         userAPI: "http://localhost:8080/users",
+        productCategoryAPI: "http://localhost:8080/productCategories"
       }}
     >
       <AllOrders.Provider value="">
