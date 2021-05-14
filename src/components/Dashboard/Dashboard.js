@@ -9,7 +9,10 @@ import ProductList from './ProductList';
 import Dashboard_Buyer from './Dashboard_Buyer';
 import Dashboard_Seller from './Dashboard_Seller';
 import AddProductCategory from './AddProductCategory'
+<<<<<<< HEAD
 
+=======
+>>>>>>> fde76479d8687775735d4c23fc8de677390743a1
 
 
 const Dashboard = (props) => {

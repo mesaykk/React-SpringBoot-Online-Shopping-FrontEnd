@@ -93,13 +93,15 @@ const Products = (props) => {
 
       <div>
         
-        <CardDeck style={{  width: '850px'}}>
+        <CardDeck >
           <Card style={{ width: '18rem'}}>
             <Card.Img variant="top" src={img1}  />
             {/* <img src={img1}></img> */}
             <Card.Body>
               <Card.Title>{ProductData[0].productName}</Card.Title>
               <Card.Text>Unit price : {ProductData[0].unitPrice}</Card.Text>
+              <Card.Text> </Card.Text>
+              
               <Button variant="primary" >
                 
                 <Link to="/product" ></Link>See More
@@ -126,7 +128,7 @@ const Products = (props) => {
             </Card.Body>
           </Card>
           <Card>
-            <Card.Img variant="top" src={img4} style={{maxHeight:"400px"}}/>
+            <Card.Img variant="top" src={img3} style={{maxHeight:"400px"}}/>
             <Card.Body>
               <Card.Title>{ProductData[2].productName}</Card.Title>
               <Card.Text>Unit price : {ProductData[2].unitPrice}</Card.Text>
@@ -140,7 +142,22 @@ const Products = (props) => {
               </Button>
             </Card.Body>
           </Card>
-        </CardDeck> */}
+          <Card>
+            <Card.Img variant="top" src={img4} style={{maxHeight:"300px"}}/>
+            <Card.Body>
+              <Card.Title>{ProductData[3].productName}</Card.Title>
+              <Card.Text>Unit price : {ProductData[2].unitPrice}</Card.Text>
+              <Button variant="primary">
+                {" "}
+                <Link to='/product'></Link>See More
+              </Button>
+              <Button style={{float: "right"}} variant="primary" onClick={Product}>
+                {" "}
+                <Link to="/product"></Link>Add to Cart
+              </Button>
+            </Card.Body>
+          </Card>
+        </CardDeck> 
       </div>
       <Switch>
         <Route path="/product" component={Product}> </Route>
