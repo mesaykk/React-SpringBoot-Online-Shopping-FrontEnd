@@ -1,18 +1,26 @@
-import React, { useContext,useState, setError, setLoading, useEffect } from "react";
+import React, {
+  useContext,
+  useState,
+  setError,
+  setLoading,
+  useEffect,
+} from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import Product from "../Product/Product";
 import { APIConfig } from "../../store/API-Config";
 import "./Products.css";
-import axios from 'axios';
+import axios from "axios";
+import ProductData from "../../Data/ProductData";
+import { Card, Button, CardDeck } from "react-bootstrap";
 
 const Products = (props) => {
   const APIs = useContext(APIConfig);
   const productAPI = APIs.productAPI;
 
   const [products, setProduct] = useState([]);
-  const [isLoading, setLoading] = useState(false); 
-    const [error, setError] = useState();
-    const [selectedId, setSelectedId] = useState(null);
+  const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState();
+  const [selectedId, setSelectedId] = useState(null);
 
   function fetchProductHandler() {
     const headers = {
@@ -32,53 +40,91 @@ const Products = (props) => {
   }
 
   useEffect(fetchProductHandler, []);
-  
-  
+
   const productSelectedHandler = (id) => {
     setSelectedId(id);
-}
-
+  };
 
   // function to filter products to show by catagory
-  //   const filterBy = () =>{
-  //     const filtered = products.filter(p=> p==props.catagory)
-  //       return (
-  //           <div> {filtered}</div>
-  //       )
-
-  //   }
-  const rproducts = products.map(product => {
-    return <Link to={props.match.url + '/' + product.id} key={product.id}>
+  // const filterBy = (catagory) => {
+  //   const filtered = ProductData[0].filter((p) => p == props.catagory);
+  //   return <div> {filtered}</div>;
+  // };
+  const rproducts = products.map((product) => {
+    return (
+      <Link to={props.match.url + "/" + product.id} key={product.id}>
         <product
-            name={product.name}
-            price={product.price}
-            clicked={() => { productSelectedHandler(product.id) }}
-            id={product.id} />
-    </Link>
-});
+          name={product.name}
+          price={product.price}
+          clicked={() => {
+            productSelectedHandler(product.id);
+          }}
+          id={product.id}
+        />
+      </Link>
+    );
+  });
 
-  let content = <p >No product available</p>;
-    if (rproducts.length > 0) {
-        content = rproducts;
-    }
-    else if (error) {
-        content = <p>{error}</p>;
-    }
-    else if (isLoading) {
-        content = <p> Loading ... </p>;  
-    }
+  let content = <p>No product available</p>;
+  if (rproducts.length > 0) {
+    content = rproducts;
+  } else if (error) {
+    content = <p>{error}</p>;
+  } else if (isLoading) {
+    content = <p> Loading ... </p>;
+  }
 
   return (
     <div className="Products">
       {/* <Product/> */}
       <div class="sidenav">
-        {/* <Link to="#" onClick={filterBy, "Electronics"}>Electronics</Link> */}
+        <Link to="#">Electronics</Link>
         <Link to="#">Books</Link>
         <Link to="#">Furniture</Link>
         <Link to="#">Services</Link>
       </div>
-      <h1>Products</h1>
-      
+
+      <div>
+        
+        <CardDeck>
+          <Card>
+            <Card.Img variant="top" src={"../../image/1.jpg" }/>
+            <Card.Body>
+              <Card.Title>{ProductData[0].productName}</Card.Title>
+              <Card.Text>Unit price : {ProductData[0].unitPrice}</Card.Text>
+              <Button variant="primary" onClick={Product}>
+                {" "}
+                <Link to="/product"></Link>See More
+              </Button>
+            </Card.Body>
+          </Card>
+          <Card>
+            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Body>
+              <Card.Title>{ProductData[1].productName}</Card.Title>
+              <Card.Text>Unit price : {ProductData[1].unitPrice}</Card.Text>
+              <Button variant="primary">
+                {" "}
+                <Link to={Product}></Link>See More
+              </Button>
+            </Card.Body>
+          </Card>
+          <Card>
+            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Body>
+              <Card.Title>{ProductData[2].productName}</Card.Title>
+              <Card.Text>Unit price : {ProductData[2].unitPrice}</Card.Text>
+              <Button variant="primary">
+                {" "}
+                <Link to='/product'></Link>See More
+              </Button>
+            </Card.Body>
+          </Card>
+        </CardDeck>
+      </div>
+      <Switch>
+        <Route path="/product" component={Product}> </Route>
+      </Switch>
     </div>
   );
 };

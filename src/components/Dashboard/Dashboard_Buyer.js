@@ -27,27 +27,19 @@ const Dashboard_Buyer = (props) => {
             
                 <ul>
                     <li >
-                        <Link to="/Dashboard/productlist" > List of Products</Link></li>
-                    <li >
-                        <Link to="/Dashboard/users" >List of Users</Link></li>
-                    <li >
-                        <Link to="/Dashboard/users" >List of Sellers</Link></li>
+                        <Link to="/Dashboard/orders"  > Order history</Link></li>
 
                     <li >
-                        <Link to="/Dashboard/orders"  > List of Orders</Link></li>
-
-                    <li >
-                        <Link to="/Dashboard/addproduct"> Add Products</Link></li>
+                        <Link to="/Dashboard/addproduct"> Liked Sellers </Link></li>
 
                 </ul>
            
                 </nav>
             <Switch>
-                <Route path="/Dashboard/addproduct" component={ AddProduct }></Route>
+                
                 <Route path="/Dashboard/productlist" component={ ProductList }></Route>
                 <Route path="/Dashboard/orders" component={Orders}></Route>
-                <Route path="/Dashboard/users" component={Users}></Route>
-                <Route path="/Dashboard/users" component={Users}></Route>
+               
           
 
             </Switch>

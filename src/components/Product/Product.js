@@ -1,47 +1,35 @@
-import React, {useContext} from 'react';
-import {ProductInCart} from '../../store/ProductInCart'
+import React, { useContext } from "react";
+import { ProductInCart } from "../../store/ProductInCart";
+import ProductData from "../../Data/ProductData";
+import { Card, Button } from "react-bootstrap";
+import { faStarHalf, faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-const Product =(props) =>{
-
-    const { addedProducts, setAddedProducts} = useContext(ProductInCart); 
-    return(
-        <div className='product' >
-      
-
-            {/* productname */}
-            <h1>{props.name}</h1>
-            <div className = 'Info'>
-                {/* <div className='image'> {props.image}</div> */}
-                <div className='description'>{props.description} </div>
-                <div className='addedOn'> {props.AddedOn}</div>
-                <div className='price'>{props.price} </div>
-                {/* <div className='size'> {props.size}</div> */}
-                <div className='Catagory'> {props.Catagory}</div>
-                {/* <div className='rating'> {props.rating}</div> */}
-            </div>
-            {
-                addedProducts.includes(props.id)
-                ?
-                
-                <button onClick={() => { 
-                    const newAddedproducts =addedProducts.filter(p=> p!==props.id); setAddedProducts(newAddedproducts);
-                  
-                   console.log(newAddedproducts)}}>
-                   
-                    Remove </button>
-                :
-                <button onClick={() => {  setAddedProducts([...addedProducts, props.id]); 
-                
-                   
-                  console.log(addedProducts);}}>
-                    Add To cart </button>
-            }
-
-           
+const Product = (props) => {
+  //const { addedProducts, setAddedProducts} = useContext(ProductInCart);
+  return (
+    <div className="product">
+      <h1>{ProductData[0].name}</h1>
+      <div className="Info">
+        <div className="image"> {ProductData[0].image}</div>
+        <div className="description">{ProductData[0].description} </div>
+        <div className="price">{ProductData[0].unitPrice} </div>
+        <div className="size"> {ProductData[0].itemSize}</div>
+        <div className="Catagory"> {ProductData[0].catagory}</div>
+        <div className="rating">
+          
+          <span ><FontAwesomeIcon icon={faStar} /></span>
+          <span ><FontAwesomeIcon icon={faStar} /></span>
+          <span ><FontAwesomeIcon icon={faStar} /></span>
+          <span ><FontAwesomeIcon icon={faStar} /></span>
+          <span ><FontAwesomeIcon icon={faStarHalf} /></span>
         </div>
-    )
-}
+      </div>
+
+      <div className=""></div>
+    </div>
+  );
+};
 
 export default Product;
-

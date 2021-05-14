@@ -20,7 +20,7 @@ const AddProduct = () => {
 
     return (
         <div className='AddProduct'>
-            <h1> <FontAwesomeIcon icon={faPlus} /> Please Add Your Product</h1>
+            <h2>  Please Add Your Product</h2>
 
             <Form class="card" onSubmit={handleSubmit}>
                 <Form.Group controlId="productName" text-center>
