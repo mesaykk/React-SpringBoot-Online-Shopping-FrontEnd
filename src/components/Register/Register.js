@@ -1,11 +1,13 @@
 
-import React, {useState } from 'react';
+import React, {useState,useContext } from 'react';
 
 import { Form, Button } from 'react-bootstrap';
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Register.css';
+import './RegisterSeller.css';
 import axios from 'axios';
+import {APIConfig} from '../../store/API-Config';
 
 
 const Register = () => {
@@ -14,33 +16,41 @@ const Register = () => {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [shippingAddress, setShippingAddress] = useState("");
-    const [billingAddress, setBillingAddress] = useState("");
+     const [role, setRole] = useState("BUYER");
+     const[message,setMessage]=useState("");
+
+     const APIs = useContext(APIConfig);
+    const userAPI = APIs.userAPI;
     
+  
+
+
+     const userData = { firstName:firstName, lastName:lastName, email: email, password:password,role:role};
+
+   
     
 
-    const validateForm = () => {
-        return email.length > 0 && password.length > 0 && firstName.length > 0 && lastName.length > 0  
-        && confirmPassword.length > 0 && shippingAddress.length > 0 && billingAddress.length > 0;
-    }
+   
 
-    const handleSubmit =(firstName, lastName,email, password, confirmPassword, shippingAddress, billingAddress) =>{
-        axios.post("http://localhost:8080/authentication", {
-            firstName,
-            lastName,
-            email,
-            password,
-            confirmPassword,
-            shippingAddress,
-            billingAddress
+    const handleUserSubmit =() =>{
+        
+
+        axios.post(userAPI, userData)
+        .then(data => {
+            setMessage("You have registered with us Successfully. Thank you "+firstName+"!");
+            console.log('Success:', data);
+       
         })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+        
     }
  
     return (
         <div className='Register'>
             <h1> <FontAwesomeIcon icon={faUserPlus} />  Register </h1>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={(e)=>{e.preventDefault()}}>
                 <Form.Group controlId="firstName" text-center>
                     <Form.Label>First Name</Form.Label>
                     <Form.Control 
@@ -82,37 +92,10 @@ const Register = () => {
                         onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
 
-                <Form.Group size="lg" controlId="password">
-                    <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control
-                        type="confirmPassword"
-                        placeholder="Confirm Password"
-                        value={confirmPassword}
-                        autoFocus
-                        onChange={(e) => setConfirmPassword(e.target.value)} />
-                </Form.Group>
+                <div className="successMessage">{message}</div>
+            
 
-                <Form.Group size="lg" controlId="shippingAddress">
-                    <Form.Label>Shipping Adrress</Form.Label>
-                    <Form.Control
-                        type="shippingAddress"
-                        placeholder="Shipping Address"
-                        value={shippingAddress}
-                        autoFocus
-                        onChange={(e) => setShippingAddress(e.target.value)} />
-                </Form.Group>
-
-                <Form.Group size="lg" controlId="billingAddress">
-                    <Form.Label>Shipping Adrress</Form.Label>
-                    <Form.Control
-                        type="billingAddress"
-                        placeholder="billing Address"
-                        value={billingAddress}
-                        autoFocus
-                        onChange={(e) => setBillingAddress(e.target.value)} />
-                </Form.Group>
-
-                <Button variant="primary" type="submit" disabled={!validateForm()}><FontAwesomeIcon icon={faUserPlus} /> Sign UP
+                <Button type="submit"  onClick={handleUserSubmit}><FontAwesomeIcon icon={faUserPlus} /> Sign UP
                 </Button>
 
             </Form>
