@@ -1,11 +1,6 @@
 import React, {useContext}from 'react';
-<<<<<<< HEAD:src/components/Dashboard/SellerDashboard/Orders.js
-import {Table} from 'react-bootstrap';
-import {AllOrders} from '../../../store/AllOrders';
-=======
-import {Table, Dropdown, DropdownButton} from 'react-bootstrap';
-import {AllOrders} from '../../store/AllOrders';
->>>>>>> 0e15097f47025052598550228df56da639afe3b2:src/components/Dashboard/Orders.js
+
+
 
 
 
