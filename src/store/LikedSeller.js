@@ -1,3 +1,3 @@
 import React from 'react';
 
-export const Liked = React.createContext([])
+export const LikedSeller = React.createContext([])

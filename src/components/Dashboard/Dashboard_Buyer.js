@@ -6,6 +6,7 @@ import {  Tabs,Tab  } from 'react-bootstrap';
 import './Dashboard.css'
 import Users from './UserList';
 import ProductList from './ProductList';
+import Following from './Following';
 
 const Dashboard_Buyer = (props) => {
 
@@ -30,14 +31,14 @@ const Dashboard_Buyer = (props) => {
                         <Link to="/Dashboard/orders"  > Order history</Link></li>
 
                     <li >
-                        <Link to="/Dashboard/addproduct"> Liked Sellers </Link></li>
+                        <Link to="/Dashboard/likedsellers"> Liked Sellers </Link></li>
 
                 </ul>
            
                 </nav>
             <Switch>
                 
-                <Route path="/Dashboard/productlist" component={ ProductList }></Route>
+                <Route path="/Dashboard/likedsellers" component={ Following }></Route>
                 <Route path="/Dashboard/orders" component={Orders}></Route>
                
           

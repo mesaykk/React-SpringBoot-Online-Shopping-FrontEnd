@@ -13,7 +13,7 @@ const Home = (props) => {
         <Carousel.Item >
           
           <img className="d-block w-50 mx-auto" src={img1} alt="First slide" />
-          <Carousel.Caption style={{color: "black", fontSize: "larger"}}>
+          <Carousel.Caption style={{color: "orange", fontSize: "20px", textShadow: '5px 5px 10px black'}}>
             <h3>Shop online</h3>
             <p>Buy and Sell, in your Store</p>
           </Carousel.Caption>

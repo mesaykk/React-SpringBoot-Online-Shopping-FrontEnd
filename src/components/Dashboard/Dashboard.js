@@ -6,6 +6,8 @@ import {  Tabs,Tab  } from 'react-bootstrap';
 import './Dashboard.css'
 import Users from './UserList';
 import ProductList from './ProductList';
+import Dashboard_Buyer from './Dashboard_Buyer';
+import Dashboard_Seller from './Dashboard_Seller';
 
 const Dashboard = (props) => {
 
@@ -24,7 +26,7 @@ const Dashboard = (props) => {
   </Tab>
 </Tabs> */}
             <nav style ={{backgroundColor:'whitesmoke'}}>
-            
+                
                 <ul>
                     <li >
                         <Link to="/Dashboard/productlist" > List of Products</Link></li>
