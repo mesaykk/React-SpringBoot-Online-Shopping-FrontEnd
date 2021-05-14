@@ -2,8 +2,8 @@
 import { Form, Button } from 'react-bootstrap';
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, {  useEffect, useState,useRef,useContext } from 'react';
-import './RegisterSeller.css';
+import React, {  useState, useContext } from 'react';
+import './Register.css';
 import axios from 'axios';
 import {APIConfig} from '../../store/API-Config';
 
@@ -26,7 +26,7 @@ const RegisterSeller = () => {
   
 
 
-     const userData = { firstName:firstName, lastName:lastName, email: email, password:password,role:role};
+    const userData = { firstName:firstName, lastName:lastName, email: email, password:password,role:role};
 
    
 
@@ -98,7 +98,7 @@ const RegisterSeller = () => {
                         </Button>
                    
                 </Form>
-               
+              
             </div>
 
         </div>

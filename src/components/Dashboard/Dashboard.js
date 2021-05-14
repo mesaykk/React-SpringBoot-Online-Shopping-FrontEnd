@@ -6,7 +6,10 @@ import { Tabs, Tab } from 'react-bootstrap';
 import './Dashboard.css'
 import Users from './UserList';
 import ProductList from './ProductList';
-import AddProductCategory from './AddProductCategory';
+import Dashboard_Buyer from './Dashboard_Buyer';
+import Dashboard_Seller from './Dashboard_Seller';
+import AddProductCategory from './AddProductCategory'
+
 
 const Dashboard = (props) => {
 
@@ -24,8 +27,8 @@ const Dashboard = (props) => {
     
   </Tab>
 </Tabs> */}
-            <nav style={{ backgroundColor: 'whitesmoke' }}>
-
+            <nav style ={{backgroundColor:'whitesmoke'}}>
+                
                 <ul>
                 <li >
                         <Link to="/Dashboard/addproductCategory"> Add ProductCategory</Link></li>

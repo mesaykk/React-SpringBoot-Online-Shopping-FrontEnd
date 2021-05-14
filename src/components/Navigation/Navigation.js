@@ -2,6 +2,7 @@
 import { Link, Route, Switch } from 'react-router-dom';
 import Home from '../Home/Home';
 import Products from '../Products/Products';
+import ContactUS from '../ContactUs/ContactUs'
 import Cart from '../Cart/Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faShoppingCart, faSignInAlt, faSignOutAlt, faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
@@ -26,6 +27,9 @@ const Navigation = () => {
           <li style={{ textAlign: 'center' }}>
             <Link to="/products"  >Products</Link></li>
 
+          <li style={{ textAlign: 'center' }}>
+            <Link to="/contactus"  >Contact Us</Link></li>  
+
           <li style={{ float: 'right' }}>
             
             <DropdownButton id="dropdown-basic-button" title="Sign Up"> 
@@ -47,9 +51,6 @@ const Navigation = () => {
             <li style={{ float: 'right' }}>
             <Link to="/cart"  ><FontAwesomeIcon icon={faShoppingCart} /></Link> </li>
 
-          <li>
-            <Link to="/footer" >Contact Us</Link> </li>
-
 
         </ul>
       </nav>
@@ -57,6 +58,7 @@ const Navigation = () => {
       <Switch>
         <Route path="/home" component={Home}></Route>
         <Route path="/products" component={Products}></Route>
+        <Route path="/contactus" component={ContactUS}></Route>
         <Route path="/cart" component={Cart}></Route>
         <Route path="/footer" component={Footer}></Route>
         <Route path="/signin" component={Login}></Route>

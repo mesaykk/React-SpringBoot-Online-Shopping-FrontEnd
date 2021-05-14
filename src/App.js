@@ -7,7 +7,6 @@ const App =() => {
   return (
     <BrowserRouter>
       <Shop/>
-   
     </BrowserRouter>
   );
 }
