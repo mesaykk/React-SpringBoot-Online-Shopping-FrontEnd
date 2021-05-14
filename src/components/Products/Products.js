@@ -84,9 +84,9 @@ const Products = (props) => {
         <Link to="#">Services</Link>
       </div>
 
-      <div>
-        
-        <CardDeck>
+      <div className="product">
+        {content}
+        {/* <CardDeck>
           <Card>
             <Card.Img variant="top" src={"../../image/1.jpg" }/>
             <Card.Body>
@@ -120,7 +120,7 @@ const Products = (props) => {
               </Button>
             </Card.Body>
           </Card>
-        </CardDeck>
+        </CardDeck> */}
       </div>
       <Switch>
         <Route path="/product" component={Product}> </Route>

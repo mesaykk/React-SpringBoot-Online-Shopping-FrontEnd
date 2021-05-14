@@ -27,3 +27,37 @@
     margin-left: 160px; /* Same as the width of the sidebar */
     padding: 0px 10px;
   }
+
+
+
+
+
+
+
+
+
+  .product {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    border-radius: 1px solid blue;
+    padding-top: 20%;
+    left:20
+}
+
+
+/* .Blog ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(26, 229, 243);
+}
+
+.Blog li {
+    display: inline-block;
+    margin: 20px;
+} */

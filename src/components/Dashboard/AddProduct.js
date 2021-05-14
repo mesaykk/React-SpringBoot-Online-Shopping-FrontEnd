@@ -1,9 +1,11 @@
-import React, { FC, FormEvent, useEffect, useState } from 'react';
+import React, { FC, FormEvent, useEffect, useState,useContext } from 'react';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import { faPlus, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, Route, Switch } from 'react-router-dom';
 import '../Dashboard/Dashboard.css'
+import axios from 'axios';
+import {APIConfig} from '../../store/API-Config';
 
 const AddProduct = () => {
 
@@ -11,18 +13,44 @@ const AddProduct = () => {
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
     const [unitPrice, setUnitPrice] = useState("");
-    const [image, setImage] = useState("");
     const [itemSize, setItemSize] = useState("");
+    const [image, setImage] = useState("");
+    
 
-    const handleSubmit = (event) => {
+    const[message,setMessage]=useState("");
+
+    const APIs = useContext(APIConfig);
+   const productAPI = APIs. productAPI;
+   
+ 
+
+
+    const productData = { productName:productName, description:description, category: category, unitPrice:unitPrice, itemSize:itemSize, image:image};
+
+  
+
+    const handleProductSubmit = (event) => {
         event.preventDefault();
+        console.log("hello tedy");
+
+        axios.post(productAPI, productData)
+        .then(data => {
+            setMessage("You have added your product Successfully. Thank you!");
+            console.log('Success:', data);
+           /// props.history.push('/posts'); // push will add it to the page stack, replace will just replace the component  // props.history.replace('/posts'); 
+        })
+        .catch((error) => {
+            setMessage("The category you selected is not created yet. You must first add ProductCategory!");
+            console.error('Error:', error);
+        });
     }
 
     return (
         <div className='AddProduct'>
-            <h2>  Please Add Your Product</h2>
+            <h4>  Please Add Your Product</h4>
 
-            <Form class="card" onSubmit={handleSubmit}>
+            <Form class="card" onSubmit={(e)=>e.preventDefault()}>
+                
                 <Form.Group controlId="productName" text-center>
 
                     <Form.Label>Product Name</Form.Label>
@@ -47,6 +75,7 @@ const AddProduct = () => {
                     />
 
                 </Form.Group>
+
                 <Form.Group controlId="category" text-center>
 
                     <Form.Label>Add Category</Form.Label>
@@ -59,8 +88,8 @@ const AddProduct = () => {
                         <option>Clothes</option>
                         <option>Foods</option>
                     </Form.Control>
-
                 </Form.Group>
+
 
                 <Form.Group controlId="price" text-center>
                     <Form.Label>Unit Price</Form.Label>
@@ -72,16 +101,25 @@ const AddProduct = () => {
                         onChange={(e) => setUnitPrice(e.target.value)}
                     />
                 </Form.Group>
+
+
                 <Form.Group controlId="itemSize" text-center>
+
                     <Form.Label>Add Item Size</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Add Item Size"
-                        value={itemSize}
-                        autoFocus
-                        onChange={(e) => setItemSize(e.target.value)}
-                    />
+                    <Form.Control as="select" type="text" placeholder="Add Item Size" value={itemSize}
+                        autoFocus onChange={(e) => setItemSize(e.target.value)}
+                    >
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                        <option>XXL</option>
+                    </Form.Control>
+
                 </Form.Group>
+
+
+
 
                 <Form>
                     <Form.File
@@ -91,7 +129,9 @@ const AddProduct = () => {
                     />
                 </Form>
 
-                <Button variant="primary" type="submit"><FontAwesomeIcon icon={faPlus} />  Add Product
+                <div className="successMessage">{message}</div>
+
+                <Button variant="primary" onClick={handleProductSubmit} type="submit"><FontAwesomeIcon icon={faPlus} />  Add Product
                 </Button>
             </Form>
         </div>
