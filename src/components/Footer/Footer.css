@@ -9,13 +9,16 @@
     text-align: center;
     background-color: rgb(15, 0, 15);
     font-size: x-large;
+    text-decoration: none;
+    
 }
 
 
-.Footer li {
+.Footer .address {
     display: inline-block;
     margin: 20px;
     text-decoration: none;
+    list-style: none;
 }
 
 
