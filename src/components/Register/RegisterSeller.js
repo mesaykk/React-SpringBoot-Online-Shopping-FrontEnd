@@ -2,7 +2,7 @@
 import { Form, Button } from 'react-bootstrap';
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, {  useState } from 'react';
+import React, {  useState, useContext } from 'react';
 import './Register.css';
 import axios from 'axios';
 import {APIConfig} from '../../store/API-Config';
