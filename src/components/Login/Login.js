@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, {  useEffect, useState,useContext } from 'react';
-=======
-import React, {  useEffect, useState, useRef } from 'react';
->>>>>>> dfb8854a90cf49f9ad21fb27475543255a4a9d8a
 import { Link, RouteComponentProps, useHistory } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,11 +7,7 @@ import { Form, Button} from 'react-bootstrap';
 import "./Login.css";
 import Dashboard from '../Dashboard/Dashboard';
 import axios from 'axios';
-<<<<<<< HEAD
 import {APIConfig} from '../../store/API-Config';
-=======
-import UserData from "../../Data/UserData";
->>>>>>> dfb8854a90cf49f9ad21fb27475543255a4a9d8a
 
 const Login = () => {
 
@@ -33,7 +25,6 @@ const Login = () => {
     const [userCall, setUserCall] = useState({});
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-<<<<<<< HEAD
     const[isUser,setIsUser]=useState(false);
     const[message,setMessage]=useState("");
 
@@ -77,26 +68,6 @@ const Login = () => {
         //     }
         //     return response.data;
         // });
-=======
-    const [role , setRole] = useState("");
-    const [message, setMessage] = useState("");
-
-    const newPostForm = useRef();
-
-    const handleSubmit =() =>{
-
-        const form = newPostForm.current
-        const data = { email: form['email'].value, password: form['password'].value };
-        console.log(data);
-        for(var i=0; i< UserData.length; i++){
-            if(email == UserData[i].email && password == UserData[i].email){
-                role = UserData[i].role;
-                 return setMessage("Login Success")
-            }
-           
-        }
-        return setMessage("User Dose not Exist")
->>>>>>> dfb8854a90cf49f9ad21fb27475543255a4a9d8a
     }
     
 
@@ -122,9 +93,8 @@ const Login = () => {
     return (
         <div className='Login' >
             <h1>Login </h1>
-            <div className="sucessMessage">{message} </div>
-
-            <Form onSubmit={handleSubmit} ref={newPostForm}>
+    
+            <Form onSubmit={handleSubmit} >
                 <Form.Group controlId="email" >
                     <Form.Label >Email address</Form.Label>
                     <Form.Control
@@ -145,13 +115,9 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
 
-<<<<<<< HEAD
                 <div className="successMessage">{message}</div>
 
                 <Button size="lg" variant="primary" type="submit" disabled={!validateForm()}>
-=======
-                <Button size="lg" variant="primary" type="submit" disabled={!validateForm()} >
->>>>>>> dfb8854a90cf49f9ad21fb27475543255a4a9d8a
                     
                     <FontAwesomeIcon icon={faSignInAlt} /> Sign In
                 </Button>
