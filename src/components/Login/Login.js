@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react';
+import React, {  useEffect, useState,useContext } from 'react';
 import { Link, RouteComponentProps, useHistory } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +7,7 @@ import { Form, Button} from 'react-bootstrap';
 import "./Login.css";
 import Dashboard from '../Dashboard/Dashboard';
 import axios from 'axios';
+import {APIConfig} from '../../store/API-Config';
 
 const Login = () => {
 
@@ -21,21 +22,52 @@ const Login = () => {
     //     })
     // }
 
+    const [userCall, setUserCall] = useState({});
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const[isUser,setIsUser]=useState(false);
+    const[message,setMessage]=useState("");
+
+
+    const APIs = useContext(APIConfig);
+    const userAPI = APIs. userAPI;
+
+    const headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+    }
+    
     
 
-    const handleSubmit =(email, password) =>{
-        axios.post("http://localhost:8080/authentication", {
-            email,
-            password
+    const handleSubmit =(event) =>{
+
+        event.preventDefault();
+        console.log("hello tedy");
+        
+        axios(userAPI+"/byEmail/"+email,{headers})
+        .then(response => {
+            setUserCall(response.data);
+            setMessage("You have loged in Successfully. Thank you!");
+            console.log('Success:', response.data);
+            setIsUser(true);
+            console.log(isUser);
+
+           /// props.history.push('/posts'); // push will add it to the page stack, replace will just replace the component  // props.history.replace('/posts'); 
         })
-        .then((response) => {
-            if(response.data.accessToken) {
-                localStorage.setItem("user", JSON.stringify(response.data))
-            }
-            return response.data;
+        .catch((error) => {
+            setMessage("User email or password error. You may need to register! Please signUp!");
+            console.error('Error:', error);
         });
+        // axios.post("http://localhost:8080/authentication", {
+        //     email,
+        //     password
+        // })
+        // .then((response) => {
+        //     if(response.data.accessToken) {
+        //         localStorage.setItem("user", JSON.stringify(response.data))
+        //     }
+        //     return response.data;
+        // });
     }
     const logout = () => {
         localStorage.removeItem("user")
@@ -68,6 +100,8 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
+
+                <div className="successMessage">{message}</div>
 
                 <Button size="lg" variant="primary" type="submit" disabled={!validateForm()}>
                     
