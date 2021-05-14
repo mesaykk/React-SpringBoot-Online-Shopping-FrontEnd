@@ -1,14 +1,6 @@
-<<<<<<< HEAD
 import React, {useContext}from 'react';
-
-
-
-=======
-import React, { useContext } from "react";
-
 import {Table, Dropdown, DropdownButton} from 'react-bootstrap';
 import {AllOrders} from '../../store/AllOrders';
->>>>>>> bfc42cec94ce3823a19841b51bcbb5a3b2af2c50
 
 
 const Orders = (props) => {
